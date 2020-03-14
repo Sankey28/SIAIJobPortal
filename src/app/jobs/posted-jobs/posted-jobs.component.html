@@ -1,0 +1,31 @@
+<div class="container">
+  <h5>Posted Jobs</h5>
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="Company">
+      <mat-header-cell *matHeaderCellDef> Company </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.Company}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Title">
+      <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.Title}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="DatePosted">
+      <mat-header-cell *matHeaderCellDef> Date Posted </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.DatePosted}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Status">
+      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.Status}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+    <mat-row style="cursor: pointer;" [ngClass]="{'highlight': selectedRowIndex == row.Id}" *matRowDef="let row; columns: displayedColumns;" (click)="getJob(row)"></mat-row>
+  </mat-table>
+</div>

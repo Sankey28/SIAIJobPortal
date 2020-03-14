@@ -1,0 +1,31 @@
+<div class="container">
+  <h5>Interviews</h5>
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="Interview">
+      <mat-header-cell *matHeaderCellDef> Interview </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.Interview}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Interviewer">
+      <mat-header-cell *matHeaderCellDef> Interviewer </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.Interviewer}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Date">
+      <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.Date}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Result">
+      <mat-header-cell *matHeaderCellDef> Result </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.Result}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
