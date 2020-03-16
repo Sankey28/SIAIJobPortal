@@ -1,25 +1,25 @@
 <div class="container">
   <h5>Interviews</h5>
-  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    <!-- Position Column -->
+  <mat-table [dataSource]="candidateInterviews" class="mat-elevation-z8">
+    <!-- Interview Column -->
     <ng-container matColumnDef="Interview">
       <mat-header-cell *matHeaderCellDef> Interview </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.Interview}} </mat-cell>
     </ng-container>
 
-    <!-- Name Column -->
+    <!-- Interviewer Column -->
     <ng-container matColumnDef="Interviewer">
       <mat-header-cell *matHeaderCellDef> Interviewer </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.Interviewer}} </mat-cell>
     </ng-container>
 
-    <!-- Weight Column -->
+    <!-- Date Column -->
     <ng-container matColumnDef="Date">
       <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.Date}} </mat-cell>
     </ng-container>
 
-    <!-- Symbol Column -->
+    <!-- Result Column -->
     <ng-container matColumnDef="Result">
       <mat-header-cell *matHeaderCellDef> Result </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.Result}} </mat-cell>

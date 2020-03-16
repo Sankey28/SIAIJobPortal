@@ -1,17 +1,7 @@
-import {
-  async,
-  ComponentFixture,
-  TestBed,
-  tick,
-  fakeAsync
-} from "@angular/core/testing";
-import {
-  HttpClientTestingModule,
-  HttpTestingController
-} from "@angular/common/http/testing";
-import { DataService } from "../services/data.service";
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { DataService } from "../../services/data.service";
 import { SearchComponent } from "./search.component";
-import { defer } from "rxjs";
 
 describe("SearchComponent", () => {
   let component: SearchComponent;
@@ -39,8 +29,13 @@ describe("SearchComponent", () => {
     fixture.detectChanges();
     expect(component.getAllJobs).toHaveBeenCalled();
   });
-});
 
-function asyncData<T>(data: T) {
-  return defer(() => Promise.resolve(data));
-}
+  it(`should be called searchJobs()`, () => {
+    const spy = spyOn(component, "searchJobs").and.callThrough();
+    expect(component).toBeDefined();
+    expect(spy);
+    component.searchJobs();
+    fixture.detectChanges();
+    expect(component.searchJobs).toHaveBeenCalled();
+  });
+});

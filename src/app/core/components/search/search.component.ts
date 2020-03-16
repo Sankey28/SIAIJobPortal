@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { DataService } from "../services/data.service";
+import { DataService } from "../../services/data.service";
 import * as _ from "underscore";
-import { Status } from "../models/status.model";
-import { SearchFilter } from "../models/search-filter.model";
-import { Jobs } from "../models/jobs.model";
+import { Status } from "../../models/status.model";
+import { SearchFilter } from "../../models/search-filter.model";
+import { Jobs } from "../../models/jobs.model";
 @Component({
   selector: "app-search",
   templateUrl: "./search.component.html",
@@ -28,7 +28,7 @@ export class SearchComponent implements OnInit {
       this.postedJobs = this.allJobs;
     });
   }
-  SearchJobs() {
+  searchJobs() {
     this.postedJobs = [];
     this.allJobs.forEach(job => {
       this.statusList.forEach(status => {

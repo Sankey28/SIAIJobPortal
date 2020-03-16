@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
   providedIn: "root"
 })
 export class DataService {
-  public currentJob: any = [];
+  public shortListedCandidates: any = [];
   public currentInterview: any = [];
   constructor(private http: HttpClient) {}
   getPostedJobs(): Observable<any> {

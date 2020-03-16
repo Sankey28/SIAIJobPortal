@@ -9,12 +9,12 @@ import { DataService } from "src/app/core/services/data.service";
 export class InterviewsComponent implements OnInit {
   displayedColumns: string[] = [];
   @Input()
-  dataSource: any = [];
+  candidateInterviews: any = [];
   constructor(private dataService: DataService) {
     this.displayedColumns = ["Interview", "Interviewer", "Date", "Result"];
   }
 
   ngOnInit(): void {
-    this.dataSource = this.dataService.currentInterview;
+    this.candidateInterviews = this.dataService.currentInterview;
   }
 }

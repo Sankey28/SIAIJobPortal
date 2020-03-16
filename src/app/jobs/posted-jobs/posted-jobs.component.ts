@@ -8,7 +8,7 @@ import { DataService } from "src/app/core/services/data.service";
 })
 export class PostedJobsComponent implements OnInit {
   @Input()
-  JobsList: any[] = [];
+  jobsList: any[] = [];
   displayedColumns: string[] = [];
   selectedRowIndex = 0;
   constructor(private dataService: DataService) {
@@ -16,8 +16,8 @@ export class PostedJobsComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-  getJob(job) {
-    this.dataService.currentJob = job.ShortListed;
+  getCandidates(job) {
+    this.dataService.shortListedCandidates = job.ShortListed;
     this.selectedRowIndex = job.Id;
   }
 }

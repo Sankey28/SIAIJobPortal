@@ -1,17 +1,21 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { PostedJobsComponent } from "./posted-jobs/posted-jobs.component";
-import { ShortlistedJobsComponent } from "./short-listed-jobs/short-listed-jobs.component";
+import { ShortlistedCandidatesComponent } from "./short-listed-candidates/short-listed-candidates.component";
 import { InterviewsComponent } from "./interviews/interviews.component";
 import { MaterialModule } from "../core/material.module";
 
 @NgModule({
   declarations: [
     PostedJobsComponent,
-    ShortlistedJobsComponent,
+    ShortlistedCandidatesComponent,
     InterviewsComponent
   ],
   imports: [CommonModule, MaterialModule],
-  exports: [PostedJobsComponent, ShortlistedJobsComponent, InterviewsComponent]
+  exports: [
+    PostedJobsComponent,
+    ShortlistedCandidatesComponent,
+    InterviewsComponent
+  ]
 })
 export class JobsModule {}

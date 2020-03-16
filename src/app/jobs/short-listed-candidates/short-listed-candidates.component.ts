@@ -2,21 +2,21 @@ import { Component, OnInit, Input } from "@angular/core";
 import { DataService } from "src/app/core/services/data.service";
 
 @Component({
-  selector: "app-short-listed-jobs",
-  templateUrl: "./short-listed-jobs.component.html",
-  styleUrls: ["./short-listed-jobs.component.css"]
+  selector: "app-short-listed-candidates",
+  templateUrl: "./short-listed-candidates.component.html",
+  styleUrls: ["./short-listed-candidates.component.css"]
 })
-export class ShortlistedJobsComponent implements OnInit {
+export class ShortlistedCandidatesComponent implements OnInit {
   displayedColumns: string[] = [];
   @Input()
-  dataSource: any = [];
+  shortListedCandidates: any = [];
   selectedRowIndex: any;
   constructor(private dataService: DataService) {
     this.displayedColumns = ["Name", "WorksAt", "Experience", "CTC"];
   }
 
   ngOnInit(): void {
-    this.dataSource = this.dataService.currentJob;
+    this.shortListedCandidates = this.dataService.shortListedCandidates;
   }
   getInterviews(row) {
     this.dataService.currentInterview = row.Interviews;
