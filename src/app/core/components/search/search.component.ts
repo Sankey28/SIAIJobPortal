@@ -35,13 +35,17 @@ export class SearchComponent implements OnInit {
         if (status.Checked) {
           if (
             status.Value === job.Status &&
-            (job.Company.indexOf(this.searchFilter.Title) > -1 ||
-              job.Title.indexOf(this.searchFilter.Title) > -1)
+            (job.Company.toLowerCase().indexOf(this.searchFilter.Title.toLowerCase()) > -1 ||
+              job.Title.toLowerCase().indexOf(this.searchFilter.Title.toLowerCase()) > -1)
           ) {
             this.postedJobs.push(job);
           }
         }
       });
     });
+  }
+  clearTitle(){
+    this.searchFilter.Title = "";
+    this.searchJobs();
   }
 }
