@@ -8,14 +8,11 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-.clearfix {
-  clear: both;
-}
 .margin-top-10 {
   margin-top: 10px;
 }
 .highlight {
-  background-color: blueviolet;
+  background-color: #673ab7;
 }
 .padding-right-20 {
   padding-right: 20px;
