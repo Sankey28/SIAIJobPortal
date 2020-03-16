@@ -26,6 +26,7 @@
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
-    <mat-row style="cursor: pointer;" [ngClass]="{'highlight': selectedRowIndex == row.Id}" *matRowDef="let row; columns: displayedColumns;" (click)="getInterviews(row)"></mat-row>
+    <mat-row style="cursor: pointer;" [ngClass]="{'highlight': selectedRowIndex == row.Id}"
+      *matRowDef="let row; columns: displayedColumns;" (click)="getInterviews(row)"></mat-row>
   </mat-table>
 </div>

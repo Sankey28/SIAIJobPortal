@@ -1,12 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { DataService } from 'src/app/core/services/data.service';
+import { Component, OnInit, Input } from "@angular/core";
+import { DataService } from "src/app/core/services/data.service";
 
 @Component({
-  selector: 'app-shortlisted',
-  templateUrl: './shortlisted.component.html',
-  styleUrls: ['./shortlisted.component.css']
+  selector: "app-short-listed-jobs",
+  templateUrl: "./short-listed-jobs.component.html",
+  styleUrls: ["./short-listed-jobs.component.css"]
 })
-export class ShortlistedComponent implements OnInit {
+export class ShortlistedJobsComponent implements OnInit {
   displayedColumns: string[] = [];
   @Input()
   dataSource: any = [];

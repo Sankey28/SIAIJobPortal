@@ -1,21 +1,21 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { PostedJobsComponent } from "./posted-jobs.component";
-import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { ShortlistedJobsComponent } from "./short-listed-jobs.component";
 import { DataService } from "src/app/core/services/data.service";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
-describe("PostedJobsComponent", () => {
-  let component: PostedJobsComponent;
-  let fixture: ComponentFixture<PostedJobsComponent>;
+describe("ShortlistedJobsComponent", () => {
+  let component: ShortlistedJobsComponent;
+  let fixture: ComponentFixture<ShortlistedJobsComponent>;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [DataService],
-      declarations: [PostedJobsComponent]
+      declarations: [ShortlistedJobsComponent]
     }).compileComponents();
   }));
   beforeEach(() => {
-    fixture = TestBed.createComponent(PostedJobsComponent);
+    fixture = TestBed.createComponent(ShortlistedJobsComponent);
     component = fixture.componentInstance;
   });
 
