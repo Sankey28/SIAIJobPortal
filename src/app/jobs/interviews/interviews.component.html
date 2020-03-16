@@ -28,4 +28,5 @@
     <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
+  <div *ngIf="candidateInterviews.length===0">No Records Found!</div>
 </div>

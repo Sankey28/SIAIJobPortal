@@ -29,4 +29,5 @@
     <mat-row style="cursor: pointer;" [ngClass]="{'highlight': selectedRowIndex == row.Id}"
       *matRowDef="let row; columns: displayedColumns;" (click)="getInterviews(row)"></mat-row>
   </mat-table>
+  <div *ngIf="shortListedCandidates.length===0">No Records Found!</div>
 </div>
