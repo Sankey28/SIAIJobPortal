@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { DataService } from "src/app/core/services/data.service";
 
 @Component({
@@ -11,13 +11,15 @@ export class PostedJobsComponent implements OnInit {
   jobsList: any[] = [];
   displayedColumns: string[] = [];
   selectedRowIndex = 0;
-  constructor(private dataService: DataService) {
+  @Output()
+  shortListedCandidates: EventEmitter<any> = new EventEmitter();
+  constructor() {
     this.displayedColumns = ["Company", "Title", "DatePosted", "Status"];
   }
 
   ngOnInit(): void {}
   getCandidates(job) {
-    this.dataService.shortListedCandidates = job.ShortListed;
+    this.shortListedCandidates.emit(job.ShortListed);
     this.selectedRowIndex = job.Id;
   }
 }

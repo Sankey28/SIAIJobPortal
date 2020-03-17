@@ -10,11 +10,9 @@ export class InterviewsComponent implements OnInit {
   displayedColumns: string[] = [];
   @Input()
   candidateInterviews: any = [];
-  constructor(private dataService: DataService) {
+  constructor() {
     this.displayedColumns = ["Interview", "Interviewer", "Date", "Result"];
   }
 
-  ngOnInit(): void {
-    this.candidateInterviews = this.dataService.currentInterview;
-  }
+  ngOnInit(): void {}
 }

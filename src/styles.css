@@ -14,9 +14,22 @@ body {
 .highlight {
   background-color: #673ab7;
 }
+.highlight .mat-cell {
+  color: white;
+}
 .padding-right-10 {
   padding-right: 10px;
 }
 .padding-right-20 {
   padding-right: 20px;
+}
+.mat-header-row {
+  background-color: beige;
+}
+.mat-header-cell {
+  font-weight: 600;
+  color: black;
+}
+.label {
+  font-size: 20px;
 }

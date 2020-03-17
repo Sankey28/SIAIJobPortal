@@ -32,7 +32,8 @@
         "Name": "Abhay",
         "WorksAt": "SysTel",
         "Experience": "10 yrs",
-        "CTC": "12L"
+        "CTC": "12L",
+        "Interviews": []
       }
     ]
   },
@@ -45,8 +46,8 @@
     "ShortListed": [
       {
         "Id": 1,
-        "Name": "Raju",
-        "WorksAt": "PLM Inc",
+        "Name": "Shyam",
+        "WorksAt": "Oracle",
         "Experience": "6 yrs",
         "CTC": "10L",
         "Interviews": [
@@ -66,10 +67,171 @@
       },
       {
         "Id": 2,
-        "Name": "Abhay",
-        "WorksAt": "SysTel",
-        "Experience": "10 yrs",
-        "CTC": "12L"
+        "Name": "Murali",
+        "WorksAt": "Capgemini",
+        "Experience": "8 yrs",
+        "CTC": "16L",
+        "Interviews": [
+          {
+            "Interview": "Round#1",
+            "Interviewer": "Vijay",
+            "Date": "20-8-19",
+            "Result": "On Hold"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "Company": "Nitor Infotech",
+    "Title": "Angular Developer",
+    "DatePosted": "10-03-2019",
+    "Status": "Open",
+    "ShortListed": [
+      {
+        "Id": 1,
+        "Name": "Rakesh",
+        "WorksAt": "TCS",
+        "Experience": "3 yrs",
+        "CTC": "6L",
+        "Interviews": [
+          {
+            "Interview": "Round#1",
+            "Interviewer": "Parag",
+            "Date": "20-8-19",
+            "Result": "Selected"
+          },
+          {
+            "Interview": "HR Round",
+            "Interviewer": "Patil, HR",
+            "Date": "27-8-19",
+            "Result": "Offered"
+          }
+        ]
+      },
+      {
+        "Id": 2,
+        "Name": "Aziz",
+        "WorksAt": "Infosys",
+        "Experience": "5 yrs",
+        "CTC": "10L",
+        "Interviews": [
+          {
+            "Interview": "Round#1",
+            "Interviewer": "Abhijeet",
+            "Date": "12-03-19",
+            "Result": "Selected"
+          },
+          {
+            "Interview": "HR Round",
+            "Interviewer": "Sharma, HR",
+            "Date": "15-03-19",
+            "Result": "Offered"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 4,
+    "Company": "Wipro",
+    "Title": "Frontend Developer",
+    "DatePosted": "17-01-2019",
+    "Status": "Closed",
+    "ShortListed": [
+      {
+        "Id": 1,
+        "Name": "Minal",
+        "WorksAt": "Cognizant",
+        "Experience": "6 yrs",
+        "CTC": "10L",
+        "Interviews": [
+          {
+            "Interview": "Round#1",
+            "Interviewer": "Hitesh",
+            "Date": "17-01-19",
+            "Result": "Selected"
+          },
+          {
+            "Interview": "HR Round",
+            "Interviewer": "Mrunmayee, HR",
+            "Date": "19-01-19",
+            "Result": "On Hold"
+          }
+        ]
+      },
+      {
+        "Id": 2,
+        "Name": "Rushikesh",
+        "WorksAt": "Pragmasys",
+        "Experience": "5 yrs",
+        "CTC": "10L",
+        "Interviews": [
+          {
+            "Interview": "Round#1",
+            "Interviewer": "Karthik",
+            "Date": "18-01-19",
+            "Result": "Selected"
+          },
+          {
+            "Interview": "HR Round",
+            "Interviewer": "Mrunmayee, HR",
+            "Date": "20-01-19",
+            "Result": "Offered"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 5,
+    "Company": "ABC",
+    "Title": "Backend Developer",
+    "DatePosted": "23-02-2019",
+    "Status": "Open",
+    "ShortListed": [
+      {
+        "Id": 1,
+        "Name": "Rudresh",
+        "WorksAt": "Cognizant",
+        "Experience": "6 yrs",
+        "CTC": "10L",
+        "Interviews": [
+          {
+            "Interview": "Round#1",
+            "Interviewer": "Hitesh",
+            "Date": "23-02-2019",
+            "Result": "Selected"
+          },
+          {
+            "Interview": "HR Round",
+            "Interviewer": "Mrunmayee, HR",
+            "Date": "19-01-19",
+            "Result": "On Hold"
+          }
+        ]
+      },
+      {
+        "Id": 2,
+        "Name": "Sujit",
+        "WorksAt": "Pragmasys",
+        "Experience": "5 yrs",
+        "CTC": "10L",
+        "Interviews": [
+          {
+            "Interview": "Round#1",
+            "Interviewer": "Karthik",
+            "Date": "23-02-2019",
+            "Result": "Selected"
+          },
+          {
+            "Interview": "HR Round",
+            "Interviewer": "Mrunmayee, HR",
+            "Date": "20-01-19",
+            "Result": "Offered"
+          }
+        ]
       }
     ]
   }

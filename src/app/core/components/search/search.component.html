@@ -1,31 +1,19 @@
-<mat-toolbar color="secondary">
-  <span class="padding-right-20">Status</span>
-  <span *ngFor="let status of statusList">
-    <mat-checkbox [(ngModel)]="status.Checked">{{status.Name}}</mat-checkbox>
-    <span class="padding-right-10"></span>
-  </span>
-  <span class="padding-right-20"></span>
-  <span>
-    <mat-label class="padding-right-20">Search</mat-label>
+<div class="row">
+  <div class="col-lg-2 col-md-2"></div>
+  <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+    <mat-label class="label padding-right-20">Status</mat-label>
+    <span *ngFor="let status of statusList">
+      <mat-checkbox (change)="searchJobs()" [(ngModel)]="status.Checked">{{status.Name}}</mat-checkbox>
+      <span class="padding-right-10"></span>
+    </span>
+    <span class="padding-right-20"></span>
+    <mat-label class="label padding-right-20">Search</mat-label>
     <mat-form-field class="example-full-width">
       <input matInput [(ngModel)]="searchFilter.Title" (keyup.enter)="searchJobs()">
     </mat-form-field>
     <button mat-raised-button color="primary" (click)="searchJobs()">Go</button>
     <button *ngIf="searchFilter.Title.length>0" mat-raised-button color="secondary"
       (click)="clearTitle()">Clear</button>
-  </span>
-</mat-toolbar>
-<div class="container">
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <app-posted-jobs [jobsList]="postedJobs"></app-posted-jobs>
   </div>
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 row">
-    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 margin-top-10">
-      <app-short-listed-candidates [shortListedCandidates]="dataService.shortListedCandidates">
-      </app-short-listed-candidates>
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 margin-top-10">
-      <app-interviews [candidateInterviews]="dataService.currentInterview"></app-interviews>
-    </div>
-  </div>
+  <div class="col-lg-2 col-md-2"></div>
 </div>
