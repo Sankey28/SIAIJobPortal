@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { DataService } from "src/app/core/services/data.service";
 
 @Component({
   selector: "app-interviews",

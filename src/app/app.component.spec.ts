@@ -125,32 +125,10 @@ describe("AppComponent", () => {
     expect(component).toBeTruthy();
   });
 
-  it(`should be called getAllJobs()`, () => {
-    const spy = spyOn(component, "getAllJobs").and.callThrough();
-    expect(component).toBeDefined();
-    expect(spy);
-    fixture.detectChanges();
-    expect(component.getAllJobs).toHaveBeenCalled();
-  });
-
-  it(`should capture changed jobs`, () => {
-    const initialValue = component.postedJobs;
-    component.getPostedJobs(dummyJobs);
-    fixture.detectChanges();
-    expect(component.postedJobs).not.toEqual(initialValue);
-  });
-
   it(`should capture shortlisted candidates`, () => {
-    const initialValue = component.shortListedCandidates;
-    component.getShortListedCandidates(dummyJobs[0].ShortListed);
+    const initialValue = component.jobId;
+    component.getShortListedCandidates(dummyJobs[0].Id);
     fixture.detectChanges();
-    expect(component.shortListedCandidates).not.toEqual(initialValue);
-  });
-
-  it(`should capture interviews information`, () => {
-    const initialValue = component.candidateInterviews;
-    component.getInterviewsInformation(dummyJobs[0].ShortListed[0].Interview);
-    fixture.detectChanges();
-    expect(component.candidateInterviews).not.toEqual(initialValue);
+    expect(component.jobId).not.toEqual(initialValue);
   });
 });

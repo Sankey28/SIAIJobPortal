@@ -16,25 +16,27 @@ import { Jobs } from "../../models/jobs.model";
   templateUrl: "./search.component.html",
   styleUrls: ["./search.component.css"]
 })
-export class SearchComponent implements OnInit, OnChanges {
+export class SearchComponent implements OnInit {
   statusList: Status[] = [];
   searchFilter: SearchFilter = new SearchFilter();
   @Output()
-  postedJobs: EventEmitter<any> = new EventEmitter();
-  @Input()
+  filteredJobs: EventEmitter<any> = new EventEmitter();
   allJobs: Jobs[] = [];
   constructor(public dataService: DataService) {
     this.statusList.push({ Name: "Open", Value: "Open", Checked: true });
     this.statusList.push({ Name: "Closed", Value: "Closed", Checked: true });
   }
 
-  ngOnInit(): void {}
-  ngOnChanges() {
+  ngOnInit(): void {
+    this.dataService.getPostedJobs(this.callbackMethodForGetAllJobs.bind(this));
+  }
+  callbackMethodForGetAllJobs(response) {
+    this.allJobs = response;
     this.searchJobs();
   }
   searchJobs() {
-    const postedJobs = [];
-    this.allJobs.forEach(job => {
+    const filteredJobs = [];
+    this.allJobs.filter(job => {
       this.statusList.forEach(status => {
         if (status.Checked) {
           if (
@@ -46,15 +48,15 @@ export class SearchComponent implements OnInit, OnChanges {
                 this.searchFilter.Title.toLowerCase()
               ) > -1)
           ) {
-            postedJobs.push(job);
+            filteredJobs.push(job.Id);
           }
         }
       });
     });
-    this.postedJobs.emit(postedJobs);
+    this.filteredJobs.emit(filteredJobs);
   }
   clearTitle() {
     this.searchFilter.Title = "";
-    this.searchJobs();
+    this.ngOnInit();
   }
 }

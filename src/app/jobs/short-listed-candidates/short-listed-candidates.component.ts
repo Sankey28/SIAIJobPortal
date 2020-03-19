@@ -1,25 +1,50 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges
+} from "@angular/core";
 import { DataService } from "src/app/core/services/data.service";
+import { ShortListedCandidates } from "src/app/core/models/short-listed-candidates.model";
 
 @Component({
   selector: "app-short-listed-candidates",
   templateUrl: "./short-listed-candidates.component.html",
   styleUrls: ["./short-listed-candidates.component.css"]
 })
-export class ShortlistedCandidatesComponent implements OnInit {
+export class ShortlistedCandidatesComponent implements OnInit, OnChanges {
   displayedColumns: string[] = [];
   @Input()
-  shortListedCandidates: any = [];
+  jobId: number;
   selectedRowIndex: any;
   @Output()
-  candidateInterviews: EventEmitter<any> = new EventEmitter();
-  constructor() {
+  candidateInfo: EventEmitter<any> = new EventEmitter();
+  shortListedCandidates: ShortListedCandidates[] = [];
+  constructor(private dataService: DataService) {
     this.displayedColumns = ["Name", "WorksAt", "Experience", "CTC"];
   }
 
   ngOnInit(): void {}
-  getInterviews(row) {
-    this.candidateInterviews.emit(row.Interviews);
-    this.selectedRowIndex = row.Id;
+  getInterviews(candidateId) {
+    this.candidateInfo.emit({
+      CandidateId: candidateId,
+      JobId: this.jobId
+    });
+    this.selectedRowIndex = candidateId;
+  }
+  ngOnChanges() {
+    this.getShortListedCandidates(this.jobId);
+  }
+  getShortListedCandidates(jobId) {
+    this.jobId = jobId;
+    this.dataService.getShortListedCandidates(
+      jobId,
+      this.callbackMethodForGetShortlistedCandidates.bind(this)
+    );
+  }
+  callbackMethodForGetShortlistedCandidates(response) {
+    this.shortListedCandidates = response;
   }
 }

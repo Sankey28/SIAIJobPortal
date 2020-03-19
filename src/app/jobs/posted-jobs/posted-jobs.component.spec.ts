@@ -22,6 +22,16 @@ describe("PostedJobsComponent", () => {
   it(`should create component`, () => {
     expect(component).toBeTruthy();
   });
+
+
+  it(`should be called getAllJobs()`, () => {
+    const spy = spyOn(component, "getAllJobs").and.callThrough();
+    expect(component).toBeDefined();
+    expect(spy);
+    fixture.detectChanges();
+    expect(component.getAllJobs).toHaveBeenCalled();
+  });
+
   it(`should be called getInterviews()`, () => {
     const jobData = {
       Id: 1,

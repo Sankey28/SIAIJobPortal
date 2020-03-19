@@ -12,14 +12,22 @@ export class PostedJobsComponent implements OnInit {
   displayedColumns: string[] = [];
   selectedRowIndex = 0;
   @Output()
-  shortListedCandidates: EventEmitter<any> = new EventEmitter();
-  constructor() {
+  jobId: EventEmitter<any> = new EventEmitter();
+  constructor(private dataService: DataService) {
     this.displayedColumns = ["Company", "Title", "DatePosted", "Status"];
   }
 
-  ngOnInit(): void {}
-  getCandidates(job) {
-    this.shortListedCandidates.emit(job.ShortListed);
-    this.selectedRowIndex = job.Id;
+  ngOnInit(): void {
+    this.getAllJobs();
+  }
+  getAllJobs() {
+    this.dataService.getPostedJobs(this.callbackForGetEmployees.bind(this));
+  }
+  callbackForGetEmployees(response) {
+    this.jobsList = response;
+  }
+  getCandidates(jobId) {
+    this.jobId.emit(jobId);
+    this.selectedRowIndex = jobId;
   }
 }

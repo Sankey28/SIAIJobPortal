@@ -142,12 +142,4 @@ describe("SearchComponent", () => {
     fixture.detectChanges();
     expect(component.searchFilter.Title).not.toEqual(initialValue);
   });
-
-  it(`should have detected changes`, () => {
-    const initialValue = component.allJobs;
-    component.allJobs = dummyJobs;
-    component.ngOnChanges();
-    fixture.detectChanges();
-    expect(component.allJobs).not.toEqual(initialValue);
-  });
 });

@@ -27,7 +27,7 @@
 
     <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
     <mat-row style="cursor: pointer;" [ngClass]="{'highlight': selectedRowIndex == row.Id}"
-      *matRowDef="let row; columns: displayedColumns;" (click)="getCandidates(row)"></mat-row>
+      *matRowDef="let row; columns: displayedColumns;" (click)="getCandidates(row.Id)"></mat-row>
   </mat-table>
   <div *ngIf="jobsList.length===0">No Records Found!</div>
 </div>

@@ -12,22 +12,29 @@ export class AppComponent implements OnInit {
   postedJobs: Jobs[] = [];
   shortListedCandidates: any[] = [];
   candidateInterviews: any = [];
+  jobId: number;
   constructor(private dataService: DataService) {}
-  ngOnInit() {
-    this.getAllJobs();
+  ngOnInit() {}
+
+  getFilteredJobs(jobs) {
+    this.dataService.getJobsById(
+      jobs,
+      this.callbackMethodForGetFilteredJobs.bind(this)
+    );
   }
-  getAllJobs() {
-    this.dataService.getPostedJobs().subscribe(data => {
-      this.allJobs = data;
-    });
+  callbackMethodForGetFilteredJobs(response) {
+    this.postedJobs = response;
   }
-  getPostedJobs(jobs) {
-    this.postedJobs = jobs;
+  getShortListedCandidates(jobId) {
+    this.jobId = jobId;
   }
-  getShortListedCandidates(shortlistedCandidates) {
-    this.shortListedCandidates = shortlistedCandidates;
+  getInterviewsInformation(candidateInfo) {
+    this.dataService.getInterviewsDetails(
+      candidateInfo,
+      this.callbackMethodForGetInterviewsDetails.bind(this)
+    );
   }
-  getInterviewsInformation(candidateInterviews) {
-    this.candidateInterviews = candidateInterviews;
+  callbackMethodForGetInterviewsDetails(response) {
+    this.candidateInterviews = response;
   }
 }

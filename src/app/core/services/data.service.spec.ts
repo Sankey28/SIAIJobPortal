@@ -1,4 +1,4 @@
-import { TestBed, inject } from "@angular/core/testing";
+import { TestBed } from "@angular/core/testing";
 import { DataService } from "./data.service";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { defer } from "rxjs";
@@ -231,10 +231,33 @@ describe("DataService", () => {
     expect(service).toBeTruthy();
   });
 
-  it("should return expected job list", () => {
+  it("should return all job list", () => {
     httpClientSpy.get.and.returnValue(asyncData(dummyJobs));
-    dataService.getPostedJobs().subscribe(jobs => {
-      expect(jobs).toEqual(expectedDummyJobs);
+    dataService.getPostedJobs(response => {
+      expect(response).toEqual(expectedDummyJobs);
+    });
+  });
+
+  it("should return expected jobs list", () => {
+    httpClientSpy.get.and.returnValue(asyncData(dummyJobs[0]));
+    dataService.getJobsById([1], response => {
+      expect(response).toEqual(expectedDummyJobs[0]);
+    });
+  });
+
+  it("should return expected candidates list", () => {
+    httpClientSpy.get.and.returnValue(asyncData(dummyJobs[0]));
+    dataService.getShortListedCandidates(1, response => {
+      expect(response).toEqual(expectedDummyJobs[0].ShortListed);
+    });
+  });
+
+  it("should return expected interview details", () => {
+    httpClientSpy.get.and.returnValue(
+      asyncData(dummyJobs[0].ShortListed[0].Interview)
+    );
+    dataService.getInterviewsDetails({ CandidateId: 1, JobId: 1 }, response => {
+      expect(response).toEqual(expectedDummyJobs[0].ShortListed[0].Interview);
     });
   });
 });
