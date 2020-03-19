@@ -3,12 +3,14 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { PostedJobsComponent } from "./posted-jobs.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { DataService } from "src/app/core/services/data.service";
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
 describe("PostedJobsComponent", () => {
   let component: PostedJobsComponent;
   let fixture: ComponentFixture<PostedJobsComponent>;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
       imports: [HttpClientTestingModule],
       providers: [DataService],
       declarations: [PostedJobsComponent]
@@ -22,7 +24,6 @@ describe("PostedJobsComponent", () => {
   it(`should create component`, () => {
     expect(component).toBeTruthy();
   });
-
 
   it(`should be called getAllJobs()`, () => {
     const spy = spyOn(component, "getAllJobs").and.callThrough();

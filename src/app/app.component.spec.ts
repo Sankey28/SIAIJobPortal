@@ -3,6 +3,7 @@ import { RouterTestingModule } from "@angular/router/testing";
 import { AppComponent } from "./app.component";
 import { DataService } from "./core/services/data.service";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
 describe("AppComponent", () => {
   let component: AppComponent;
@@ -113,6 +114,7 @@ describe("AppComponent", () => {
   ];
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [DataService],
       imports: [RouterTestingModule, HttpClientTestingModule],
       declarations: [AppComponent]

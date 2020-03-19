@@ -3,12 +3,14 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { ShortlistedCandidatesComponent } from "./short-listed-candidates.component";
 import { DataService } from "src/app/core/services/data.service";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
 describe("ShortlistedJobsComponent", () => {
   let component: ShortlistedCandidatesComponent;
   let fixture: ComponentFixture<ShortlistedCandidatesComponent>;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
       imports: [HttpClientTestingModule],
       providers: [DataService],
       declarations: [ShortlistedCandidatesComponent]
