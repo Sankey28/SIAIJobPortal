@@ -9,12 +9,12 @@ export class DataService {
   constructor(private http: HttpClient) {}
   getPostedJobs(callback) {
     this.http
-      .get<Jobs[]>("http://localhost:4200/assets/data.json")
+      .get<Jobs[]>("assets/data.json")
       .subscribe(response => callback(response));
   }
   getJobsById(request, callback) {
     this.http
-      .get<Jobs[]>("http://localhost:4200/assets/data.json")
+      .get<Jobs[]>("assets/data.json")
       .pipe(
         map(response =>
           response.filter(job => request.toString().indexOf(job.Id) > -1)
@@ -24,7 +24,7 @@ export class DataService {
   }
   getShortListedCandidates(request, callback) {
     this.http
-      .get<Jobs[]>("http://localhost:4200/assets/data.json")
+      .get<Jobs[]>("assets/data.json")
       .pipe(
         map(response => response.find(job => job.Id === request).ShortListed)
       )
@@ -32,7 +32,7 @@ export class DataService {
   }
   getInterviewsDetails(request, callback) {
     this.http
-      .get<Jobs[]>("http://localhost:4200/assets/data.json")
+      .get<Jobs[]>("assets/data.json")
       .pipe(
         map(
           response => response.find(job => job.Id === request.JobId).ShortListed
