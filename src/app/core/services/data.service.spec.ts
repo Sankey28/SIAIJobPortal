@@ -1,4 +1,4 @@
-import { TestBed, async, inject } from "@angular/core/testing";
+import { TestBed, inject, waitForAsync } from "@angular/core/testing";
 import { DataService } from "./data.service";
 import {
   HttpClientTestingModule,
@@ -232,7 +232,7 @@ describe("DataService", () => {
     expect(service).toBeTruthy();
   });
 
-  it("should return all job list", async(
+  it("should return all job list", waitForAsync(
     inject([DataService], (dataService: DataService) => {
       httpClientSpy.get.and.returnValue(asyncData(dummyJobs));
       dataService.getPostedJobs(response => {
@@ -241,7 +241,7 @@ describe("DataService", () => {
     })
   ));
 
-  it("should return expected jobs list", async(
+  it("should return expected jobs list", waitForAsync(
     inject([DataService], (dataService: DataService) => {
       httpClientSpy.get.and.returnValue(asyncData(dummyJobs[0]));
       dataService.getJobsById([1], response => {
@@ -250,7 +250,7 @@ describe("DataService", () => {
     })
   ));
 
-  it("should return expected candidates list", async(
+  it("should return expected candidates list", waitForAsync(
     inject([DataService], (dataService: DataService) => {
       httpClientSpy.get.and.returnValue(asyncData(dummyJobs[0]));
       dataService.getShortListedCandidates(1, response => {
@@ -259,7 +259,7 @@ describe("DataService", () => {
     })
   ));
 
-  it("should return expected interview details", async(
+  it("should return expected interview details", waitForAsync(
     inject([DataService], (dataService: DataService) => {
       httpClientSpy.get.and.returnValue(
         asyncData(dummyJobs[0].ShortListed[0].Interview)

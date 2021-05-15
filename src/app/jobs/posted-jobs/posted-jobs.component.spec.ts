@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
 
 import { PostedJobsComponent } from "./posted-jobs.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
@@ -8,7 +8,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 describe("PostedJobsComponent", () => {
   let component: PostedJobsComponent;
   let fixture: ComponentFixture<PostedJobsComponent>;
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       imports: [HttpClientTestingModule],
